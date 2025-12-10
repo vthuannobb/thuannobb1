@@ -1,362 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="https://venngage-wordpress.s3.amazonaws.com/uploads/2022/09/meme_doge_dog.png" type="image/x-icon">
     <title>nobthuan | ha</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <meta name="author" content="Thuan">
-    <meta property="og:title" content="HELLO TACHI HẢO - CHÀO MỪNG ĐẾN VỚI WEBSITE CỦA MÌNH !">
-    <meta name="theme-color" content="#007AFF" />
-    
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        *{margin:0;padding:0;box-sizing:border-box}
+
+        body{
+            font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,sans-serif;
+            background:#000;
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            padding:20px;
+            position:relative;
+            overflow:hidden
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
-            background: #000;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            position: relative;
-            overflow: hidden;
+        body::before{
+            content:'';
+            position:fixed;
+            inset:0;
+            background:
+                radial-gradient(circle at 20% 30%,rgba(120,119,198,.3)0%,transparent 50%),
+                radial-gradient(circle at 80% 70%,rgba(72,149,239,.3)0%,transparent 50%),
+                radial-gradient(circle at 40% 80%,rgba(138,101,234,.2)0%,transparent 50%);
+            animation:gradientShift 15s ease infinite;
+            z-index:0
         }
 
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(72, 149, 239, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(138, 101, 234, 0.2) 0%, transparent 50%);
-            animation: gradientShift 15s ease infinite;
-            z-index: 0;
+        @keyframes gradientShift{
+            0%,100%{opacity:1;transform:scale(1)}
+            50%{opacity:.8;transform:scale(1.1)}
         }
 
-        @keyframes gradientShift {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.1); }
+        .wrapper{width:100%;max-width:420px;position:relative;z-index:2}
+
+        .profile-card{
+            background:rgba(28,28,30,.85);
+            backdrop-filter:saturate(180%) blur(20px);
+            border-radius:28px;
+            overflow:hidden;
+            box-shadow:0 0 0 .5px rgba(255,255,255,.1),0 30px 80px rgba(0,0,0,.5)
         }
 
-        .wrapper {
-            width: 100%;
-            max-width: 420px;
-            position: relative;
-            z-index: 1;
+        .profile-header{
+            height:160px;
+            background:linear-gradient(135deg,#667eea,#764ba2)
         }
 
-        .profile-card {
-            background: rgba(28, 28, 30, 0.85);
-            backdrop-filter: saturate(180%) blur(20px);
-            -webkit-backdrop-filter: saturate(180%) blur(20px);
-            border-radius: 28px;
-            overflow: hidden;
-            box-shadow: 
-                0 0 0 0.5px rgba(255, 255, 255, 0.1),
-                0 30px 80px rgba(0, 0, 0, 0.5);
+        .profile-body{
+            padding:0 20px 30px;
+            text-align:center
         }
 
-        .profile-header {
-            height: 160px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            position: relative;
-            overflow: hidden;
+        .author-img{
+            width:110px;
+            height:110px;
+            margin:-55px auto 16px
         }
 
-        .profile-header img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.8;
+        .author-img img{
+            width:100%;
+            height:100%;
+            border-radius:50%;
+            border:4px solid rgba(28,28,30,1);
+            box-shadow:0 8px 24px rgba(0,0,0,.4);
+            object-fit:cover
         }
 
-        .profile-body {
-            padding: 0 20px 30px;
-            text-align: center;
-            position: relative;
+        .author-name{font-size:22px;font-weight:600;color:#fff}
+        .author-bio{margin-top:6px;color:rgba(255,255,255,.6)}
+
+        .ios-menu{
+            background:rgba(58,58,60,.5);
+            backdrop-filter:blur(20px);
+            border-radius:13px;
+            overflow:hidden;
+            margin:12px 0;
+            border:.5px solid rgba(255,255,255,.1)
         }
 
-        .author-img {
-            width: 110px;
-            height: 110px;
-            margin: -55px auto 16px;
-            position: relative;
-            z-index: 10;
+        .menu-item{
+            display:flex;
+            align-items:center;
+            padding:14px 16px;
+            border-bottom:.5px solid rgba(255,255,255,.08);
+            color:#fff;
+            cursor:pointer
         }
 
-        .author-img img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            border: 4px solid rgba(28, 28, 30, 1);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-            object-fit: cover;
+        .menu-item:last-child{border-bottom:none}
+
+        .menu-icon{
+            width:30px;
+            height:30px;
+            border-radius:7px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            margin-right:14px;
+            color:white
         }
 
-        .author-name {
-            font-size: 22px;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: 4px;
-            letter-spacing: -0.3px;
-        }
+        .facebook{background:linear-gradient(135deg,#0A7CFF,#0866FF)}
+        .zalo{background:linear-gradient(135deg,#0180C7,#0068FF)}
 
-        .author-bio {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 15px;
-            margin-bottom: 24px;
-            font-weight: 400;
-        }
+        .menu-text{flex:1;font-size:17px}
+        .menu-arrow{color:rgba(255,255,255,.3)}
 
-        /* iOS 18 Style Menu */
-        .ios-menu {
-            background: rgba(58, 58, 60, 0.5);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 13px;
-            overflow: hidden;
-            margin: 12px 0;
-            border: 0.5px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .menu-item {
-            display: flex;
-            align-items: center;
-            padding: 14px 16px;
-            border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
-            text-decoration: none;
-            color: #fff;
-            transition: background 0.15s ease;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .menu-item:last-child {
-            border-bottom: none;
-        }
-
-        .menu-item:active {
-            background: rgba(255, 255, 255, 0.1);
-            transition: background 0.05s ease;
-        }
-
-        .menu-icon {
-            width: 30px;
-            height: 30px;
-            border-radius: 7px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 14px;
-            font-size: 15px;
-            color: white;
-            flex-shrink: 0;
-        }
-
-        .menu-icon.facebook {
-            background: linear-gradient(135deg, #0A7CFF 0%, #0866FF 100%);
-        }
-
-        .menu-icon.zalo {
-            background: linear-gradient(135deg, #0180C7 0%, #0068FF 100%);
-        }
-
-        .menu-text {
-            flex: 1;
-            text-align: left;
-            font-size: 17px;
-            font-weight: 400;
-            letter-spacing: -0.4px;
-        }
-
-        .menu-arrow {
-            color: rgba(255, 255, 255, 0.3);
-            font-size: 18px;
-            font-weight: 600;
-        }
-
-        /* Music Control - iOS Style */
-        .music-control {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 56px;
-            height: 56px;
-            background: rgba(58, 58, 60, 0.7);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 
-                0 0 0 0.5px rgba(255, 255, 255, 0.1),
-                0 8px 24px rgba(0, 0, 0, 0.4);
-            transition: all 0.2s ease;
-            z-index: 1000;
-            border: 0.5px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .music-control:hover {
-            transform: scale(1.05);
-            background: rgba(68, 68, 70, 0.8);
-        }
-
-        .music-control:active {
-            transform: scale(0.95);
-        }
-
-        .music-control i {
-            color: #0A7CFF;
-            font-size: 20px;
-        }
-
-        .music-control.playing i {
-            animation: musicPulse 1.5s ease-in-out infinite;
-        }
-
-        @keyframes musicPulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.6; }
-        }
-
-        .footer {
-            margin-top: 24px;
-            padding-top: 20px;
-            border-top: 0.5px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 13px;
-            font-weight: 400;
-        }
-
-        .footer strong {
-            color: rgba(255, 255, 255, 0.7);
-            font-weight: 500;
-        }
-
-        /* Responsive */
-        @media (max-width: 480px) {
-            .profile-card {
-                border-radius: 24px;
-            }
-            
-            .music-control {
-                width: 50px;
-                height: 50px;
-                bottom: 20px;
-                right: 20px;
-            }
+        #snowCanvas{
+            position:fixed;
+            inset:0;
+            width:100%;
+            height:100%;
+            z-index:1;
+            pointer-events:none
         }
     </style>
 </head>
 
 <body>
-    <audio id="backgroundMusic" loop>
-        <source src="music.mp3" type="audio/mpeg">
-    </audio>
 
-    <div class="music-control" id="musicControl">
-        <i class="fa fa-play" id="musicIcon"></i>
-    </div>
+<canvas id="snowCanvas"></canvas>
 
-    <div class="wrapper">
-        <div class="profile-card">
-            <div class="profile-header">
-                <img src="https://media.tenor.com/jWRFHjiNdkgAAAAd/anime-dance.gif" alt="Banner">
+<audio id="backgroundMusic" autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="wrapper">
+    <div class="profile-card">
+        <div class="profile-header"></div>
+
+        <div class="profile-body">
+            <div class="author-img">
+                <img src="https://i.imgur.com/VGfas0J.jpeg">
             </div>
 
-            <div class="profile-body">
-                <div class="author-img">
-                    <!-- ĐỔI LINK ẢNH AVATAR Ở ĐÂY -->
-                    <img src="https://i.imgur.com/VGfas0J.jpeg" alt="Avatar">
+            <div class="author-name">Nguyễn Văn Thuận</div>
+            <div class="author-bio">Welcome to</div>
+
+            <div class="ios-menu">
+                <div class="menu-item" onclick="window.open('https://www.facebook.com/ng.thuan.978716','_blank')">
+                    <div class="menu-icon facebook"><i class="fa fa-facebook"></i></div>
+                    <div class="menu-text">Facebook</div>
+                    <div class="menu-arrow">›</div>
                 </div>
 
-                <div class="author-name">Nguyễn Văn Thuận</div>
-                <div class="author-bio">Welcome to</div>
-
-                <div class="ios-menu">
-                    <div class="menu-item" onclick="window.open('https://www.facebook.com/ng.thuan.978716', '_blank')">
-                        <div class="menu-icon facebook">
-                            <i class="fa fa-facebook"></i>
-                        </div>
-                        <div class="menu-text">Facebook</div>
-                        <div class="menu-arrow">›</div>
-                    </div>
-
-                    <div class="menu-item" onclick="window.open('https://zalo.me/0123456789', '_blank')">
-                        <div class="menu-icon zalo">
-                            <i class="fa fa-comment"></i>
-                        </div>
-                        <div class="menu-text">Zalo</div>
-                        <div class="menu-arrow">›</div>
-                    </div>
+                <div class="menu-item" onclick="window.open('https://zalo.me/0123456789','_blank')">
+                    <div class="menu-icon zalo"><i class="fa fa-comment"></i></div>
+                    <div class="menu-text">Zalo</div>
+                    <div class="menu-arrow">›</div>
                 </div>
+            </div>
 
-                <div class="footer">
-                    Created by MrNobThuan<br>
-                    <strong>All rights reserved © 2025</strong>
-                </div>
+            <div class="footer">
+                Created by MrNobThuan<br>
+                <strong>All rights reserved © 2025</strong>
             </div>
         </div>
     </div>
+</div>
 
-    <script>
-        const music = document.getElementById('backgroundMusic');
-        const musicControl = document.getElementById('musicControl');
-        const musicIcon = document.getElementById('musicIcon');
-        let isPlaying = false;
+<script>
+    const canvas=document.getElementById("snowCanvas");
+    const ctx=canvas.getContext("2d");
+    let w,h;
 
-        // Auto play music when page loads
-        window.addEventListener('load', function() {
-            music.play().then(() => {
-                isPlaying = true;
-                musicControl.classList.add('playing');
-                musicIcon.className = 'fa fa-pause';
-            }).catch(e => {
-                // If autoplay blocked, try on first user interaction
-                document.addEventListener('click', function playOnce() {
-                    music.play().then(() => {
-                        isPlaying = true;
-                        musicControl.classList.add('playing');
-                        musicIcon.className = 'fa fa-pause';
-                    });
-                    document.removeEventListener('click', playOnce);
-                }, { once: true });
-            });
+    function resize(){
+        w=canvas.width=window.innerWidth;
+        h=canvas.height=window.innerHeight;
+    }
+    resize();
+    window.onresize=resize;
+
+    let flakes=[];
+    for(let i=0;i<140;i++){
+        flakes.push({
+            x:Math.random()*w,
+            y:Math.random()*h,
+            r:Math.random()*3+1,
+            d:Math.random()+1
         });
+    }
 
-        // Auto replay when music ends
-        music.addEventListener('ended', function() {
-            music.currentTime = 0;
-            music.play();
+    function drawSnow(){
+        ctx.clearRect(0,0,w,h);
+        ctx.fillStyle="white";
+        ctx.beginPath();
+        flakes.forEach(f=>{
+            ctx.moveTo(f.x,f.y);
+            ctx.arc(f.x,f.y,f.r,0,Math.PI*2);
         });
+        ctx.fill();
+        updateSnow();
+    }
 
-        // Music control button
-        musicControl.addEventListener('click', function(e) {
-            e.stopPropagation();
-            if (isPlaying) {
-                music.pause();
-                musicIcon.className = 'fa fa-play';
-                musicControl.classList.remove('playing');
-            } else {
-                music.play();
-                musicIcon.className = 'fa fa-pause';
-                musicControl.classList.add('playing');
+    let angle=0;
+    function updateSnow(){
+        angle+=0.001;
+        flakes.forEach(f=>{
+            f.y+=Math.pow(f.d,2)+1;
+            f.x+=Math.sin(angle)*.5;
+            if(f.y>h){
+                f.y=-10;
+                f.x=Math.random()*w;
             }
-            isPlaying = !isPlaying;
         });
-    </script>
+    }
+
+    setInterval(drawSnow,20);
+
+    const music=document.getElementById("backgroundMusic");
+    window.addEventListener("load",()=>{
+        music.play().catch(()=>{
+            const first=()=>{
+                music.play();
+                document.removeEventListener("click",first);
+            };
+            document.addEventListener("click",first);
+        });
+    });
+</script>
+
 </body>
 </html>
