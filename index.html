@@ -24,7 +24,6 @@ body{
     overflow:hidden;
 }
 
-/* VIDEO BACKGROUND */
 #bg-video{
     position:fixed;
     top:0;
@@ -35,7 +34,6 @@ body{
     z-index:-2;
 }
 
-/* Light overlay - Mỏng hơn để thấy video */
 body::after{
     content:'';
     position:fixed;
@@ -52,7 +50,6 @@ body::after{
     z-index:5;
 }
 
-/* ULTRA THIN GLASS iOS 26 - Cực trong suốt */
 .profile-card{
     background:rgba(255,255,255,.02);
     backdrop-filter:blur(28px) saturate(200%);
@@ -66,7 +63,6 @@ body::after{
         inset 0 -1px 0 rgba(0,0,0,.08);
 }
 
-/* Avatar floating iOS style - Viền trắng cố định */
 .author-img{
     width:100px;
     height:100px;
@@ -86,7 +82,6 @@ body::after{
         inset 0 0 15px rgba(255,255,255,.05);
 }
 
-/* Name + Bio - Căn giữa */
 .author-name{
     font-size:24px;
     font-weight:600;
@@ -103,7 +98,6 @@ body::after{
     text-align:center;
 }
 
-/* Menu iOS 26 - Cực trong suốt để nhìn xuyên video */
 .ios-menu{
     background:rgba(255,255,255,.03);
     backdrop-filter:blur(25px) saturate(180%);
@@ -136,7 +130,6 @@ body::after{
     transform:scale(0.98);
 }
 
-/* ICON iOS STYLE */
 .menu-icon{
     width:44px;
     height:44px;
@@ -172,7 +165,6 @@ body::after{
     color:rgba(255,255,255,.5);
     font-size:13px;
     line-height:1.6;
-    text-shadow:0 1px 3px rgba(0,0,0,.2);
     text-align:center;
 }
 
@@ -180,12 +172,8 @@ body::after{
     color:rgba(255,255,255,.7);
 }
 
-/* Audio player ẩn */
-#bgMusic{
-    display:none;
-}
+#bgMusic{display:none}
 
-/* Snow effect */
 #snowCanvas{
     position:fixed;
     inset:0;
@@ -199,12 +187,10 @@ body::after{
 
 <body>
 
-<!-- BACKGROUND VIDEO -->
 <video autoplay muted loop playsinline id="bg-video">
     <source src="background.mp4" type="video/mp4">
 </video>
 
-<!-- BACKGROUND MUSIC -->
 <audio id="bgMusic" autoplay loop>
     <source src="music.mp3" type="audio/mpeg">
 </audio>
@@ -294,6 +280,11 @@ function updateSnow(){
 }
 
 setInterval(drawSnow,33);
+
+/* FIX AUTOPLAY */
+document.addEventListener("click",()=>{
+    document.getElementById("bgMusic").play();
+},{once:true});
 </script>
 
 </body>
