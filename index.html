@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link rel="shortcut icon" href="https://venngage-wordpress.s3.amazonaws.com/uploads/2022/09/meme_doge_dog.png" type="image/x-icon">
 <title>nobthuan | ha</title>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <style>
@@ -19,9 +21,10 @@ body{
     align-items:center;
     padding:20px;
     position:relative;
-    overflow:hidden
+    overflow:hidden;
 }
 
+/* VIDEO BACKGROUND */
 #bg-video{
     position:fixed;
     top:0;
@@ -29,160 +32,167 @@ body{
     width:100%;
     height:100%;
     object-fit:cover;
-    z-index:-2
+    z-index:-2;
 }
 
-body::before{
+/* Light overlay */
+body::after{
     content:'';
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.55);
-    z-index:-1
+    background:rgba(0,0,0,.32);
+    backdrop-filter:blur(2px);
+    z-index:-1;
 }
 
 .wrapper{
     width:100%;
     max-width:420px;
     position:relative;
-    z-index:2
+    z-index:5;
 }
 
+/* ULTRA THIN GLASS */
 .profile-card{
-    background:rgba(28,28,30,.85);
-    backdrop-filter:saturate(180%) blur(20px);
-    border-radius:28px;
+    background:rgba(255,255,255,.06);
+    backdrop-filter:blur(18px) saturate(180%);
+    border-radius:26px;
     overflow:hidden;
-    box-shadow:0 0 0 .5px rgba(255,255,255,.1),0 30px 80px rgba(0,0,0,.5)
+    padding-bottom:20px;
+    border:1px solid rgba(255,255,255,.12);
+    box-shadow:
+        0 6px 25px rgba(0,0,0,.45),
+        inset 0 0 15px rgba(255,255,255,.03);
 }
 
+/* Header extremely thin */
 .profile-header{
-    height:160px;
-    background:linear-gradient(135deg,#667eea,#764ba2)
+    height:60px;
+    background:transparent;
 }
 
-.profile-body{
-    padding:0 20px 30px;
-    text-align:center
-}
-
+/* Avatar floating */
 .author-img{
-    width:110px;
-    height:110px;
-    margin:-55px auto 16px
+    width:95px;
+    height:95px;
+    margin:-45px auto 20px;
+    position:relative;
 }
 
 .author-img img{
     width:100%;
     height:100%;
     border-radius:50%;
-    border:4px solid rgba(28,28,30,1);
-    box-shadow:0 8px 24px rgba(0,0,0,.4);
-    object-fit:cover
+    object-fit:cover;
+
+    border:3px solid rgba(255,255,255,.38);
+    box-shadow:
+        0 6px 25px rgba(0,0,0,.5),
+        0 0 25px rgba(255,255,255,.12);
 }
 
+/* Name + Bio */
 .author-name{
     font-size:22px;
     font-weight:600;
-    color:#fff
+    color:#fff;
 }
 
 .author-bio{
     margin-top:6px;
-    color:rgba(255,255,255,.6)
+    color:rgba(255,255,255,.6);
+    font-size:14px;
 }
 
+/* Menu iOS 26 */
 .ios-menu{
-    background:rgba(58,58,60,.5);
-    backdrop-filter:blur(20px);
-    border-radius:18px;
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(16px);
+    border-radius:20px;
     overflow:hidden;
-    margin:14px 0;
-    border:1px solid rgba(255,255,255,.08)
+    margin:18px 0;
+    border:1px solid rgba(255,255,255,.1);
+    box-shadow:0 4px 16px rgba(0,0,0,.28);
 }
 
 .menu-item{
     display:flex;
     align-items:center;
-    padding:16px 18px;
+    padding:16px 20px;
     border-bottom:1px solid rgba(255,255,255,.06);
     color:#fff;
     cursor:pointer;
-    transition:background .15s ease
+    transition:.12s ease;
 }
 
 .menu-item:last-child{
-    border-bottom:none
+    border-bottom:none;
 }
 
 .menu-item:active{
-    background:rgba(255,255,255,.06)
+    background:rgba(255,255,255,.08);
 }
 
+/* ICON iOS STYLE */
 .menu-icon{
-    width:46px;
-    height:46px;
+    width:42px;
+    height:42px;
     border-radius:14px;
     display:flex;
     align-items:center;
     justify-content:center;
     margin-right:16px;
     color:#fff;
-    font-size:22px;
-    box-shadow:0 4px 12px rgba(0,0,0,.25)
+    font-size:20px;
+    box-shadow:0 6px 14px rgba(0,0,0,.25);
 }
 
-.facebook{
-    background:linear-gradient(135deg,#0A7CFF,#0866FF)
-}
-
-.zalo{
-    background:linear-gradient(135deg,#0180C7,#0068FF)
-}
+.facebook{background:linear-gradient(135deg,#0A7CFF,#0866FF)}
+.zalo{background:linear-gradient(135deg,#0180C7,#0068FF)}
 
 .menu-text{
     flex:1;
-    font-size:18px
+    font-size:17px;
 }
 
 .menu-arrow{
     color:rgba(255,255,255,.3);
-    font-size:22px
+    font-size:22px;
 }
 
+.footer{
+    margin-top:14px;
+    color:rgba(255,255,255,.55);
+    font-size:14px;
+}
+
+/* Snow effect */
 #snowCanvas{
     position:fixed;
     inset:0;
     width:100%;
     height:100%;
-    z-index:1;
-    pointer-events:none
-}
-
-.footer{
-    margin-top:16px;
-    color:rgba(255,255,255,.55);
-    font-size:14px
+    z-index:2;
+    pointer-events:none;
 }
 </style>
 </head>
 
 <body>
 
-<video id="bg-video" autoplay muted loop playsinline>
+<!-- BACKGROUND VIDEO -->
+<video autoplay muted loop playsinline id="bg-video">
     <source src="background.mp4" type="video/mp4">
 </video>
 
 <canvas id="snowCanvas"></canvas>
-
-<audio id="backgroundMusic" autoplay loop>
-    <source src="music.mp3" type="audio/mpeg">
-</audio>
 
 <div class="wrapper">
     <div class="profile-card">
         <div class="profile-header"></div>
 
         <div class="profile-body">
+
             <div class="author-img">
                 <img src="https://i.imgur.com/VGfas0J.jpeg">
             </div>
@@ -262,18 +272,7 @@ function updateSnow(){
 }
 
 setInterval(drawSnow,20);
-
-const music=document.getElementById("backgroundMusic");
-window.addEventListener("load",()=>{
-    music.play().catch(()=>{
-        const first=()=>{
-            music.play();
-            document.removeEventListener("click",first);
-        };
-        document.addEventListener("click",first);
-    });
-});
 </script>
 
 </body>
-            </html>
+</html>
