@@ -66,7 +66,7 @@ body::after{
         inset 0 -1px 0 rgba(0,0,0,.08);
 }
 
-/* Avatar floating iOS style */
+/* Avatar floating iOS style - Viền trắng cố định */
 .author-img{
     width:100px;
     height:100px;
@@ -79,19 +79,20 @@ body::after{
     height:100%;
     border-radius:50%;
     object-fit:cover;
-    border:3.5px solid rgba(255,255,255,.25);
+    border:3.5px solid rgba(255,255,255,.35);
     box-shadow:
         0 8px 28px rgba(0,0,0,.45),
         0 0 30px rgba(255,255,255,.08),
         inset 0 0 15px rgba(255,255,255,.05);
 }
 
-/* Name + Bio */
+/* Name + Bio - Căn giữa */
 .author-name{
     font-size:24px;
     font-weight:600;
     color:#fff;
     text-shadow:0 2px 8px rgba(0,0,0,.3);
+    text-align:center;
 }
 
 .author-bio{
@@ -99,6 +100,7 @@ body::after{
     color:rgba(255,255,255,.65);
     font-size:15px;
     text-shadow:0 1px 4px rgba(0,0,0,.2);
+    text-align:center;
 }
 
 /* Menu iOS 26 - Cực trong suốt để nhìn xuyên video */
@@ -171,10 +173,16 @@ body::after{
     font-size:13px;
     line-height:1.6;
     text-shadow:0 1px 3px rgba(0,0,0,.2);
+    text-align:center;
 }
 
 .footer strong{
     color:rgba(255,255,255,.7);
+}
+
+/* Audio player ẩn */
+#bgMusic{
+    display:none;
 }
 
 /* Snow effect */
@@ -195,6 +203,11 @@ body::after{
 <video autoplay muted loop playsinline id="bg-video">
     <source src="background.mp4" type="video/mp4">
 </video>
+
+<!-- BACKGROUND MUSIC -->
+<audio id="bgMusic" autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
 
 <canvas id="snowCanvas"></canvas>
 
@@ -246,7 +259,7 @@ resize();
 window.onresize=resize;
 
 let flakes=[];
-for(let i=0;i<150;i++){
+for(let i=0;i<120;i++){
     flakes.push({
         x:Math.random()*w,
         y:Math.random()*h,
@@ -271,8 +284,8 @@ let angle=0;
 function updateSnow(){
     angle+=0.001;
     flakes.forEach(f=>{
-        f.y+=Math.pow(f.d,2)+1;
-        f.x+=Math.sin(angle)*0.6;
+        f.y+=Math.pow(f.d,2)+0.8;
+        f.x+=Math.sin(angle)*0.5;
         if(f.y>h){
             f.y=-10;
             f.x=Math.random()*w;
@@ -280,8 +293,8 @@ function updateSnow(){
     });
 }
 
-setInterval(drawSnow,20);
+setInterval(drawSnow,33);
 </script>
 
 </body>
-    </html>
+</html>
