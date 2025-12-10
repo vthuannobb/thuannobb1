@@ -35,13 +35,13 @@ body{
     z-index:-2;
 }
 
-/* Light overlay */
+/* Light overlay - Mỏng hơn để thấy video */
 body::after{
     content:'';
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.32);
-    backdrop-filter:blur(2px);
+    background:rgba(0,0,0,.18);
+    backdrop-filter:blur(1px);
     z-index:-1;
 }
 
@@ -52,30 +52,25 @@ body::after{
     z-index:5;
 }
 
-/* ULTRA THIN GLASS */
+/* ULTRA THIN GLASS iOS 26 - Cực trong suốt */
 .profile-card{
-    background:rgba(255,255,255,.06);
-    backdrop-filter:blur(18px) saturate(180%);
-    border-radius:26px;
+    background:rgba(255,255,255,.02);
+    backdrop-filter:blur(28px) saturate(200%);
+    border-radius:30px;
     overflow:hidden;
-    padding-bottom:20px;
-    border:1px solid rgba(255,255,255,.12);
+    padding:30px 20px 25px;
+    border:1px solid rgba(255,255,255,.18);
     box-shadow:
-        0 6px 25px rgba(0,0,0,.45),
-        inset 0 0 15px rgba(255,255,255,.03);
+        0 8px 32px rgba(0,0,0,.35),
+        inset 0 1px 0 rgba(255,255,255,.15),
+        inset 0 -1px 0 rgba(0,0,0,.08);
 }
 
-/* Header extremely thin */
-.profile-header{
-    height:60px;
-    background:transparent;
-}
-
-/* Avatar floating */
+/* Avatar floating iOS style */
 .author-img{
-    width:95px;
-    height:95px;
-    margin:-45px auto 20px;
+    width:100px;
+    height:100px;
+    margin:0 auto 22px;
     position:relative;
 }
 
@@ -84,45 +79,50 @@ body::after{
     height:100%;
     border-radius:50%;
     object-fit:cover;
-
-    border:3px solid rgba(255,255,255,.38);
+    border:3.5px solid rgba(255,255,255,.25);
     box-shadow:
-        0 6px 25px rgba(0,0,0,.5),
-        0 0 25px rgba(255,255,255,.12);
+        0 8px 28px rgba(0,0,0,.45),
+        0 0 30px rgba(255,255,255,.08),
+        inset 0 0 15px rgba(255,255,255,.05);
 }
 
 /* Name + Bio */
 .author-name{
-    font-size:22px;
+    font-size:24px;
     font-weight:600;
     color:#fff;
+    text-shadow:0 2px 8px rgba(0,0,0,.3);
 }
 
 .author-bio{
-    margin-top:6px;
-    color:rgba(255,255,255,.6);
-    font-size:14px;
+    margin-top:8px;
+    color:rgba(255,255,255,.65);
+    font-size:15px;
+    text-shadow:0 1px 4px rgba(0,0,0,.2);
 }
 
-/* Menu iOS 26 */
+/* Menu iOS 26 - Cực trong suốt để nhìn xuyên video */
 .ios-menu{
-    background:rgba(255,255,255,.05);
-    backdrop-filter:blur(16px);
-    border-radius:20px;
+    background:rgba(255,255,255,.03);
+    backdrop-filter:blur(25px) saturate(180%);
+    border-radius:24px;
     overflow:hidden;
-    margin:18px 0;
-    border:1px solid rgba(255,255,255,.1);
-    box-shadow:0 4px 16px rgba(0,0,0,.28);
+    margin:24px 0;
+    border:1px solid rgba(255,255,255,.14);
+    box-shadow:
+        0 4px 20px rgba(0,0,0,.25),
+        inset 0 1px 0 rgba(255,255,255,.1);
 }
 
 .menu-item{
     display:flex;
     align-items:center;
-    padding:16px 20px;
+    padding:17px 20px;
     border-bottom:1px solid rgba(255,255,255,.06);
     color:#fff;
     cursor:pointer;
-    transition:.12s ease;
+    transition:.15s ease;
+    text-decoration:none;
 }
 
 .menu-item:last-child{
@@ -130,40 +130,51 @@ body::after{
 }
 
 .menu-item:active{
-    background:rgba(255,255,255,.08);
+    background:rgba(255,255,255,.1);
+    transform:scale(0.98);
 }
 
 /* ICON iOS STYLE */
 .menu-icon{
-    width:42px;
-    height:42px;
+    width:44px;
+    height:44px;
     border-radius:14px;
     display:flex;
     align-items:center;
     justify-content:center;
     margin-right:16px;
     color:#fff;
-    font-size:20px;
-    box-shadow:0 6px 14px rgba(0,0,0,.25);
+    font-size:21px;
+    box-shadow:0 6px 16px rgba(0,0,0,.3);
 }
 
 .facebook{background:linear-gradient(135deg,#0A7CFF,#0866FF)}
 .zalo{background:linear-gradient(135deg,#0180C7,#0068FF)}
+.instagram{background:linear-gradient(135deg,#833AB4,#E1306C,#FD1D1D,#FCAF45)}
+.github{background:linear-gradient(135deg,#24292e,#4A4A4A)}
 
 .menu-text{
     flex:1;
     font-size:17px;
+    font-weight:500;
 }
 
 .menu-arrow{
-    color:rgba(255,255,255,.3);
-    font-size:22px;
+    color:rgba(255,255,255,.35);
+    font-size:24px;
+    font-weight:300;
 }
 
 .footer{
-    margin-top:14px;
-    color:rgba(255,255,255,.55);
-    font-size:14px;
+    margin-top:18px;
+    color:rgba(255,255,255,.5);
+    font-size:13px;
+    line-height:1.6;
+    text-shadow:0 1px 3px rgba(0,0,0,.2);
+}
+
+.footer strong{
+    color:rgba(255,255,255,.7);
 }
 
 /* Snow effect */
@@ -189,16 +200,14 @@ body::after{
 
 <div class="wrapper">
     <div class="profile-card">
-        <div class="profile-header"></div>
-
         <div class="profile-body">
 
             <div class="author-img">
-                <img src="https://i.imgur.com/VGfas0J.jpeg">
+                <img src="https://i.imgur.com/VGfas0J.jpeg" alt="Avatar">
             </div>
 
             <div class="author-name">Nguyễn Văn Thuận</div>
-            <div class="author-bio">Welcome to</div>
+            <div class="author-bio">Welcome to my profile</div>
 
             <div class="ios-menu">
 
@@ -237,24 +246,24 @@ resize();
 window.onresize=resize;
 
 let flakes=[];
-for(let i=0;i<140;i++){
+for(let i=0;i<150;i++){
     flakes.push({
         x:Math.random()*w,
         y:Math.random()*h,
-        r:Math.random()*3+1,
-        d:Math.random()+1
+        r:Math.random()*3.5+1,
+        d:Math.random()+1,
+        opacity:Math.random()*0.6+0.4
     });
 }
 
 function drawSnow(){
     ctx.clearRect(0,0,w,h);
-    ctx.fillStyle="white";
-    ctx.beginPath();
     flakes.forEach(f=>{
-        ctx.moveTo(f.x,f.y);
+        ctx.fillStyle=`rgba(255,255,255,${f.opacity})`;
+        ctx.beginPath();
         ctx.arc(f.x,f.y,f.r,0,Math.PI*2);
+        ctx.fill();
     });
-    ctx.fill();
     updateSnow();
 }
 
@@ -263,7 +272,7 @@ function updateSnow(){
     angle+=0.001;
     flakes.forEach(f=>{
         f.y+=Math.pow(f.d,2)+1;
-        f.x+=Math.sin(angle)*.5;
+        f.x+=Math.sin(angle)*0.6;
         if(f.y>h){
             f.y=-10;
             f.x=Math.random()*w;
@@ -275,4 +284,4 @@ setInterval(drawSnow,20);
 </script>
 
 </body>
-</html>
+    </html>
